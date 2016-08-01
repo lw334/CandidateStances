@@ -422,11 +422,19 @@ function draw_scatter_plot(dataset, filterState, filterIssue) {
       console.log(d);
       var candidate = d.values[0];
       var issues = d.values;
+      var candidateIssues = " ";
+      var sourceurl = ""
       $("#candidateName").text(candidate["First Name"] + " " + candidate["Last Name"]);
       if (hasIssue(issues, filterIssue)) {
-        $("#candidateStance").text(candidate["edited issue stance for site"]);
+        issues.forEach((issue) => {
+          if (issue["Issue Tag 1"] == filterIssue) {
+            candidateIssues += issue["edited issue stance for site"] + ".  ";
+            sourceurl = issue["Source URL"];
+          }
+        })
+        $("#candidateStance").text(candidateIssues);
         $("#candidateSource a").text("source");
-        $("#candidateSource a").attr("href", candidate["Source URL"]);
+        $("#candidateSource a").attr("href", sourceurl);
       }
     });
 }

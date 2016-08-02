@@ -222,7 +222,7 @@ function sampleOpinions(reps, replist) {
           var l = document.createElement("li");
           l.className = "list-group-item";
           l.innerHTML = (stance["First Name"]+ " " + stance["Last Name"]
-          + " running for " + stance["Office"] + " in " + stance["state"] + " : " +
+          + " running for " + stance["Office"] + " in " + stance["state"] + ": " +
            stance["Issue Stance"]);
           opinions.push(l);
         }
